@@ -1,6 +1,11 @@
 .App {
 }
+body {
+  max-height: 100vh;
+  max-width: 100vw;
+}
 .top-bottom {
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -12,19 +17,14 @@
 .header {
   display: flex;
   background-color: #d1c24f;
-  width: 100%;
-  height: 50px;
+  width: 100vw;
+  height: 44px;
   justify-content: space-evenly;
 }
-.nav-expander {
-  font-size: 30px;
-  padding: 7px;
-}
 .nav-expander-button {
-  background: none;
-  outline: none;
-  border: none;
+  display: none;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -32,11 +32,11 @@
   display: flex;
   background-color: #d1c24f;
   width: 100%;
-  /* height: 50px; */
   justify-content: space-evenly;
 }
 
 .main-body {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -44,9 +44,10 @@
 }
 .sidebar-main {
   color: #696965;
-  width: 25%;
+  width: 18%;
   background-color: white;
 }
+
 .sidebar-hidden {
   color: red;
   width: 25%;
@@ -91,7 +92,7 @@
 .items-area {
   border-left: 1px solid #d1c24f;
   height: 80vh;
-  width: 100%;
+  max-width: 100vw;
   margin-left: 1vw;
   background-color: #f5f5ed;
   padding: 1%;
@@ -147,8 +148,7 @@ textarea {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 5px;
-  margin: 3% 3% 3% 0;
+  margin: 1% 3% 3% 0;
 }
 .note-card {
   background-color: white;
@@ -219,7 +219,55 @@ textarea {
 .App-link {
   color: #09d3ac;
 }
-@media only screen and (max-width: 510px) {
+
+.footer {
+  width: 100vw;
+}
+@media only screen and (max-width: 768px) {
+  .sidebar-main {
+    color: #696965;
+    width: 35%;
+    background-color: white;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .note-holder {
+    border: 1px solid red;
+    width: 100%;
+  }
+  .note-card {
+    width: 45%;
+  }
+  .body-main {
+    display: none;
+  }
+  .header-text {
+    display: none;
+  }
+  .items-area {
+    border-left: none;
+    padding: 2px;
+    width: 100vw;
+  }
+  .sidebar-main {
+    display: none;
+  }
+  .nav-expander {
+    display: block;
+    font-size: 30px;
+    padding: 7px;
+    font-size: 30px;
+    padding: 7px;
+  }
+  .nav-expander-button {
+    background: none;
+    outline: none;
+    border: none;
+    display: block;
+  }
+}
+
+/* @media only screen and (max-width: 510px) {
   .top-bottom {
     min-height: 100vh;
     padding-bottom: 2.5rem;
@@ -300,4 +348,4 @@ textarea {
     width: 85%;
     margin-left: 6%;
   }
-}
+} */

@@ -8,9 +8,9 @@ export const TextArea = () => {
   // const notes = useRef(null)
 
   const handleFocus = () => {
+    console.log(isFocused);
     setIsFocused(true);
-    // console.log(notes.current.value)
-    // notes.current.focus();
+    console.log(isFocused);
   };
 
   const handleBlur = () => {
@@ -33,14 +33,12 @@ export const TextArea = () => {
             onFocus={handleFocus}
             onBlur={handleBlur}
             className="double-title"
-            maxLength="50"
             value={title}
             onChange={event => setTitle(event.target.value)}
             placeholder="Title(50 characters max)"
           />
 
           <textarea
-            //    ref={notes}
             onFocus={handleFocus}
             onBlur={handleBlur}
             className="double-content"
@@ -55,11 +53,9 @@ export const TextArea = () => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           className={isFocused ? "textarea-focused" : "textarea"}
-          rows="15"
           value={content}
           onChange={event => setContent(event.target.value)}
           placeholder="Add New Note"
-          cols="50"
         />
       )}
     </div>

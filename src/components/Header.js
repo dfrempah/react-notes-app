@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import notes from "../assets/notes.png";
 import { FaBars } from "react-icons/fa";
 
 export const Header = props => {
-  const handleClick = () => {
-    console.log("i have to bring the side bar");
-  };
   return (
     <div className="header">
-      <button className="nav-expander-button" onClick={handleClick}>
+      <button className="nav-expander-button">
         <span className="nav-expander">
           <FaBars />
         </span>
