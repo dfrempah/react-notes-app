@@ -26,37 +26,43 @@ export const TextArea = () => {
   };
 
   return (
-    <div className="double-textarea">
+    <div className="input-area">
       {isFocused ? (
-        <div>
-          <textarea
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            className="double-title"
-            value={title}
-            onChange={event => setTitle(event.target.value)}
-            placeholder="Title(50 characters max)"
-          />
+        <div className="double">
+          <div className="text-title">
+            <textarea
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              className="double-title"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+              placeholder="Title(50 characters max)"
+            />
+          </div>
 
-          <textarea
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            className="double-content"
-            value={content}
-            onChange={event => setContent(event.target.value)}
-            placeholder="Enter note here..."
-          />
+          <div className="text-content">
+            <textarea
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              value={content}
+              onChange={event => setContent(event.target.value)}
+              placeholder="Enter note here..."
+            />
+          </div>
+
           <Button name="close" onClick={onCloseButtonClick} />
         </div>
       ) : (
-        <textarea
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={isFocused ? "textarea-focused" : "textarea"}
-          value={content}
-          onChange={event => setContent(event.target.value)}
-          placeholder="Add New Note"
-        />
+        <div className="singleton">
+          <textarea
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className={isFocused ? "textarea-focused" : "textarea"}
+            value={content}
+            onChange={event => setContent(event.target.value)}
+            placeholder="Add New Note"
+          />
+        </div>
       )}
     </div>
   );

@@ -12,7 +12,6 @@ function App() {
   const [sidebarStatus, setSidebarStatus] = useState("sidebar-main");
   const sidebar = useContext(SidebarContext);
 
-  // console.log(sidebar);
   return (
     <SidebarContextProvider
       value={{
@@ -31,15 +30,14 @@ function App() {
             <SideBar class={sidebarStatus} />
 
             <div className="items-area">
-              {/* <div className="text-box">
-                {/* <div className="inner-text-box">
-                  <TextArea />
-                </div> */}
-              {/* </div> */}
+              <div className="text-holder">
+                <TextArea />
+              </div>
               <Notes />
             </div>
           </div>
         </div>
+
         {/* footer  */}
         <div className="footer">
           <Footer />

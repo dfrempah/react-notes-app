@@ -2,6 +2,7 @@ import React from "react";
 import { FaRegNewspaper, FaArchive, FaTrash } from "react-icons/fa";
 
 export const SideBar = props => {
+  console.log(props.sidebarStatus);
   return (
     <div className={props.class}>
       <ul className="sidebar-ul">

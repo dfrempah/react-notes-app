@@ -1,15 +1,7 @@
-.App {
-}
-body {
-  max-height: 100vh;
-  max-width: 100vw;
-}
 .top-bottom {
-  max-width: 100vw;
-  display: flex;
-  flex-direction: column;
   position: relative;
   min-height: 100vh;
+  background-color: #f5f5ed;
 }
 .content {
   padding-bottom: 2.5rem;
@@ -24,7 +16,6 @@ body {
 .nav-expander-button {
   display: none;
 }
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -34,7 +25,6 @@ body {
   width: 100%;
   justify-content: space-evenly;
 }
-
 .main-body {
   width: 100vw;
   display: flex;
@@ -44,13 +34,7 @@ body {
 }
 .sidebar-main {
   color: #696965;
-  width: 18%;
-  background-color: white;
-}
-
-.sidebar-hidden {
-  color: red;
-  width: 25%;
+  width: 30%;
   background-color: white;
 }
 .sidebar-ul {
@@ -81,7 +65,6 @@ body {
   padding: 8px;
   background-color: #f0f0df;
 }
-
 .sidebar-li:hover {
   background-color: #f0f0df;
 }
@@ -89,66 +72,63 @@ body {
   margin-right: 6px;
   padding-top: 1px;
 }
+.content {
+  background-color: #f5f5ed;
+}
 .items-area {
   border-left: 1px solid #d1c24f;
-  height: 80vh;
-  max-width: 100vw;
-  margin-left: 1vw;
+  padding: 1%;
+}
+.text-holder {
+  max-width: 900px;
+  padding: 5px 0 2% 0;
+  margin-bottom: 5px;
   background-color: #f5f5ed;
+  box-shadow: #f0f0df;
+  border: 1px thin gold;
+  border-radius: 20px;
+  box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.5);
+  margin: 5px;
+  margin-bottom: 8px;
+}
+/* text area styles */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1% 3% 3% 0;
+}
+.singleton {
+  padding: 1%;
+}
+.double {
   padding: 1%;
 }
 textarea {
-  height: 3vh;
-  border-radius: 20px;
   padding: 2%;
+  font-size: 14px;
+}
+.text-content > textarea {
+  height: 6vh;
+}
+textarea {
+  height: 30px;
+  width: 100%;
+  border-radius: 15px;
   outline: none;
   border: none;
   font-size: 16px;
   overflow: hidden;
   resize: none;
 }
-.textarea-focused {
-  background-color: #09d3ac;
-  height: 10vh;
-}
-.double-textarea {
-  display: flex;
-  margin-left: 2%;
-  width: 1000px;
-  background: white;
-  border-radius: 20px;
-  overflow: auto;
-  transition: 0.3s;
-}
-.double-title {
-  width: 100%;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 2vh;
-}
-.double-content {
-  width: 100%;
-  margin-top: 0;
-  background: white;
-  border-radius: 20px;
-  overflow: auto;
-  height: 10vh;
-}
-.button-holder {
-  width: 100%;
-}
-.button-holder > button {
-  position: relative;
-  margin-left: 88%;
-  bottom: 0;
-}
+/* textarea */
 .note-holder {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: 1% 3% 3% 0;
+  margin: 1% 0% 1% 0%;
 }
 .note-card {
   background-color: white;
@@ -185,17 +165,6 @@ textarea {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2s);
   color: #696965;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 .clean-button {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -207,30 +176,48 @@ textarea {
   border-top-left-radius: 9px;
   border-bottom-right-radius: 9px;
   border-bottom-left-radius: 9px;
-  width: 10%;
-  margin-right: 2%;
+  width: 14%;
+  margin: 3px 2% 0 0;
   height: 30px;
-  margin-bottom: 5px 5px 5px 88%;
-  position: relative;
-  right: 0;
   outline: none;
   color: #696965;
 }
 .App-link {
   color: #09d3ac;
 }
-
-.footer {
-  width: 100vw;
+@media only screen and (min-width: 1200px) {
+  .text-holder {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  .sidebar-main {
+    color: #696965;
+    width: 29%;
+    background-color: white;
+  }
+  .note-card {
+    margin: 0.5%;
+    width: 20%;
+  }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 958px) {
   .sidebar-main {
     color: #696965;
     width: 35%;
     background-color: white;
   }
+  .note-card {
+    width: 45%;
+  }
 }
 @media only screen and (max-width: 610px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header > img {
+    margin-right: 5px;
+  }
   .note-holder {
     border: 1px solid red;
     width: 100%;
@@ -246,10 +233,11 @@ textarea {
   }
   .items-area {
     border-left: none;
-    padding: 2px;
+    padding: 1px;
     width: 100vw;
   }
   .sidebar-main {
+    width: 25%;
     display: none;
   }
   .nav-expander {
@@ -266,86 +254,20 @@ textarea {
     display: block;
   }
 }
-
-/* @media only screen and (max-width: 510px) {
-  .top-bottom {
-    min-height: 100vh;
-    padding-bottom: 2.5rem;
-  }
-  .double-title {
-    margin-top: 5px;
-  }
-  .double-content {
-    width: 80vw;
-    overflow: hidden;
-  }
-  .content {
-    margin-bottom: 2.5rem;
-  }
-  .header-text {
-    display: none;
-  }
-  .logo-image {
-    position: absolute;
-    left: 0;
-    margin-left: 10px;
-  }
-  .double-textarea {
-    padding-top: 5px;
-    border: 1px solid red;
-    display: flex;
-    width: 85vw;
-    border-radius: 20px;
-    overflow: auto;
-    transition: 0.3s;
-    overflow: hidden;
-  }
-  .text-box {
-    width: 80vw;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
+@media only screen and (max-width: 400px) {
   .note-holder {
-    padding: 0;
-    align-items: stretch;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 3% 3% 3% 0;
   }
-
   .note-card {
-    margin: 2%;
-    width: 100%;
-    margin-right: 0;
+    width: 90%;
+    margin: 3%;
   }
 }
-@media only screen and (max-width: 810px) {
+@media only screen and (min-width: 1280px) {
   .sidebar-main {
-    display: none;
-  }
-  .footer {
-    display: none;
-  }
-  .main-body {
-    height: 100vh;
-  }
-  .items-area {
-    height: 100vh;
+    color: #696965;
+    width: 250px;
+    background-color: white;
   }
 }
-@media only screen and (max-width: 610px) {
-  .text-box {
-    width: 10%;
-    flex-direction: row;
-    align-items: stretch;
-    display: flex;
-    justify-content: space-between;
-  }
-  .note-card {
-    width: 85%;
-    margin-left: 6%;
-  }
-} */
