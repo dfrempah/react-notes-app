@@ -1,14 +1,30 @@
 import React, { useContext } from "react";
 import notes from "../assets/notes.png";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaArrowDown } from "react-icons/fa";
+import { SettingsContext } from "../context/Index";
 
 export const Header = props => {
+  const settings = useContext(SettingsContext);
+
+  const handleSidebarToggle = () => {
+    settings.setShowBars(!settings.showBars);
+    settings.sidebarStatus === "sidebar-main"
+      ? settings.ToggleSidebarStatus("sidebar-mobile")
+      : settings.ToggleSidebarStatus("sidebar-main");
+  };
+
   return (
     <div className="header">
-      <button className="nav-expander-button">
-        <span className="nav-expander">
-          <FaBars />
-        </span>
+      <button className="nav-expander-button" onClick={handleSidebarToggle}>
+        {settings.showBars ? (
+          <span className="nav-expander">
+            <FaBars />
+          </span>
+        ) : (
+          <span className="nav-expander">
+            <FaArrowDown />
+          </span>
+        )}
       </button>
       <img
         src={notes}

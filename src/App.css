@@ -37,6 +37,28 @@
   width: 30%;
   background-color: white;
 }
+.sidebar-mobile {
+  color: white;
+  position: absolute;
+  height: 85vh;
+  width: 220px;
+  padding: 5% 0% 0 1%;
+  background-color: #d1c24f;
+  z-index: 1;
+  animation-name: sidebar-slide;
+  animation-duration: 100ms;
+}
+.sidebar-mobile .icon {
+  color: white;
+}
+@keyframes sidebar-slide {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 220px;
+  }
+}
 .sidebar-ul {
   padding: 20px 0px 20px 0px;
   border-top: 1px solid #d1c24f;
@@ -58,7 +80,7 @@
 .sidebar-li-selected {
   padding: 7px 0px 6px 0px;
   margin-left: 0;
-  font-size: 27px;
+  font-size: 24px;
   list-style-type: none;
   margin: 7px 0px 7px 0px;
   letter-spacing: 2px;
@@ -69,6 +91,7 @@
   background-color: #f0f0df;
 }
 .icon {
+  color: #d1c24f;
   margin-right: 6px;
   padding-top: 1px;
 }
@@ -185,31 +208,24 @@ textarea {
 .App-link {
   color: #09d3ac;
 }
-@media only screen and (min-width: 1200px) {
-  .text-holder {
-    margin-left: 25%;
-    margin-right: 25%;
-  }
+@media only screen and (min-width: 1280px) {
   .sidebar-main {
     color: #696965;
-    width: 29%;
+    width: 250px;
     background-color: white;
   }
-  .note-card {
-    margin: 0.5%;
-    width: 20%;
-  }
 }
-@media only screen and (max-width: 958px) {
+@media only screen and (min-width: 958px) {
   .sidebar-main {
     color: #696965;
-    width: 35%;
+    width: 30%;
     background-color: white;
   }
   .note-card {
     width: 45%;
   }
 }
+
 @media only screen and (max-width: 610px) {
   .header {
     display: flex;
@@ -264,10 +280,18 @@ textarea {
     margin: 3%;
   }
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1200px) {
+  .text-holder {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
   .sidebar-main {
     color: #696965;
-    width: 250px;
+    width: 35%;
     background-color: white;
+  }
+  .note-card {
+    margin: 0.5%;
+    width: 20%;
   }
 }

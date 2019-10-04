@@ -1,23 +1,22 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Notes } from "./Pages/Notes";
 import { TextArea } from "./components/TextArea";
 import "./App.css";
 import { SideBar } from "./components/SideBar";
-import { SidebarContextProvider } from "./context/Index";
-import { SidebarContext } from "./context/Index";
+import { SettingsContextProvider } from "./context/Index";
 
 function App() {
-  const [sidebarStatus, setSidebarStatus] = useState("sidebar-main");
-  const sidebar = useContext(SidebarContext);
+  const sidebarInit = "sidebar-main";
+  const colorThemeInit = 1;
+  const activeNav = 1;
 
   return (
-    <SidebarContextProvider
-      value={{
-        className: sidebarStatus,
-        updater: setSidebarStatus
-      }}
+    <SettingsContextProvider
+      sidebar={sidebarInit}
+      colorTheme={colorThemeInit}
+      activeNav={activeNav}
     >
       <div className="top-bottom">
         {/* header  */}
@@ -27,7 +26,7 @@ function App() {
 
           {/* body with 3 sides  */}
           <div className="main-body">
-            <SideBar class={sidebarStatus} />
+            <SideBar class="sidebar-main" />
 
             <div className="items-area">
               <div className="text-holder">
@@ -43,7 +42,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </SidebarContextProvider>
+    </SettingsContextProvider>
   );
 }
 
