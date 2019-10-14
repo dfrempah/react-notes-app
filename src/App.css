@@ -295,3 +295,6 @@ textarea {
     width: 20%;
   }
 }
+.items-area {
+  width: 100vw;
+}
