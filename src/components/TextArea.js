@@ -27,7 +27,7 @@ export const TextArea = () => {
     const newNote = {
       title,
       content,
-      archived: true,
+      archived: false,
       trashed: false,
       key: uniqid()
     };

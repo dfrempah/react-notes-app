@@ -1,20 +1,25 @@
 import React, { useContext } from "react";
-import uniqid from "uniqid";
 import { NotesContext } from "../context/Index";
 import { Note } from "../components/Note";
 import { TextArea } from "../components/TextArea";
 
 export const Notes = () => {
-  const { notes } = useContext(NotesContext);
+  const {
+    notes,
+    onArchiveButtonClick,
+    onTrashButtonClick,
+    pureNotes
+  } = useContext(NotesContext);
 
-  const onArchiveButtonClick = index => {
-    console.log(index + " archived");
-    // console.log(+"archived");
-  };
+  // pureNotes.length = 0;
+  notes.map(note => {
+    if (!note.archived && !note.trashed) {
+      pureNotes.push(note);
+    }
 
-  const onTrashButtonClick = index => {
-    console.log(index + " Trashed");
-  };
+    return 0;
+  });
+
   return (
     <div>
       <div className="text-holder">
@@ -22,7 +27,7 @@ export const Notes = () => {
       </div>
 
       <div className="note-holder">
-        {notes.map(note => (
+        {pureNotes.map(note => (
           <Note
             title={note.title}
             content={note.content}
