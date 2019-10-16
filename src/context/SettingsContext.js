@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Context = React.createContext({ A: "we this" });
+export const Context = React.createContext({});
 
 export const Provider = props => {
   const { sidebar, colorTheme, activeNav, children } = props;

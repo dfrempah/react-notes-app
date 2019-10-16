@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import uniqid from "uniqid";
 import { Button } from "./Button";
+import { NotesContext } from "../context/Index";
 
 export const TextArea = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [content, setContent] = useState(undefined);
   const [title, setTitle] = useState(undefined);
-  // const notes = useRef(null)
+  const { notes, addNote } = useContext(NotesContext);
 
   const handleFocus = () => {
-    console.log(isFocused);
     setIsFocused(true);
-    console.log(isFocused);
-  };
-
-  const handleBlur = () => {
-    //nothing
   };
 
   const onCloseButtonClick = () => {
-    console.log("I have been clicked");
     if (content !== undefined || title !== undefined) {
-      console.log("create card");
+      saveNow();
     }
     setIsFocused(false);
+    setContent(undefined);
+    setTitle(undefined);
+    setIsFocused(false);
+  };
+
+  const saveNow = () => {
+    const newNote = {
+      title,
+      content,
+      archived: true,
+      trashed: false,
+      key: uniqid()
+    };
+    addNote([...notes, newNote]);
   };
 
   return (
@@ -32,7 +41,6 @@ export const TextArea = () => {
           <div className="text-title">
             <textarea
               onFocus={handleFocus}
-              onBlur={handleBlur}
               className="double-title"
               value={title}
               onChange={event => setTitle(event.target.value)}
@@ -43,7 +51,6 @@ export const TextArea = () => {
           <div className="text-content">
             <textarea
               onFocus={handleFocus}
-              onBlur={handleBlur}
               value={content}
               onChange={event => setContent(event.target.value)}
               placeholder="Enter note here..."
@@ -56,7 +63,6 @@ export const TextArea = () => {
         <div className="singleton">
           <textarea
             onFocus={handleFocus}
-            onBlur={handleBlur}
             className={isFocused ? "textarea-focused" : "textarea"}
             value={content}
             onChange={event => setContent(event.target.value)}

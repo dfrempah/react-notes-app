@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { FaRegNewspaper, FaArchive, FaTrash } from "react-icons/fa";
 import { SettingsContext } from "../context/Index";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { Archived } from "../Pages/Archived";
-import { Trash } from "../Pages/Trash";
-import { Notes } from "../Pages/Notes";
+import { Link } from "react-router-dom";
 
 export const SideBar = () => {
   const settings = useContext(SettingsContext);

@@ -1,18 +1,18 @@
 import React from "react";
 import { FaTrash, FaArchive } from "react-icons/fa";
 
-export const Note = () => {
+export const Note = props => {
   return (
     <div className="note-card">
-      <p>New Note</p>
-      <p>This is a sample content file bore adding state</p>
+      <p>{props.title}</p>
+      <p>{props.content}</p>
       <div className="card-buttons">
-        <button>
+        <button onClick={() => props.onArchive(props.index)}>
           <span>
             <FaArchive />
           </span>
         </button>
-        <button>
+        <button onClick={() => props.onTrash(props.index)}>
           <span>
             <FaTrash />
           </span>

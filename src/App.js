@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Notes } from "./Pages/Notes";
-import { TextArea } from "./components/TextArea";
 import "./App.css";
 import { SideBar } from "./components/SideBar";
+import { NotesContextProvider } from "./context/Index";
 import { SettingsContextProvider } from "./context/Index";
 import { Archived } from "./Pages/Archived";
 import { Trash } from "./Pages/Trash";
@@ -55,21 +55,22 @@ function App() {
 
           <div className="content">
             <Header />
+            <NotesContextProvider>
+              <div className="main-body">
+                <SideBar class="sidebar-main" />
 
-            <div className="main-body">
-              <SideBar class="sidebar-main" />
-
-              <div className="items-area">
-                {routes.map(route => (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    exact={route.exact}
-                    component={route.show}
-                  />
-                ))}
+                <div className="items-area">
+                  {routes.map(route => (
+                    <Route
+                      key={route.path}
+                      path={route.path}
+                      exact={route.exact}
+                      component={route.show}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </NotesContextProvider>
           </div>
 
           {/* footer  */}
