@@ -4,21 +4,9 @@ import { GoTrashcan } from "react-icons/go";
 import { Note } from "../components/Note";
 
 export const Trash = () => {
-  const {
-    notes,
-    trashed,
-    onTrashButtonClick,
-    onArchiveButtonClick
-  } = useContext(NotesContext);
-
-  // trashed.length = 0;
-  notes.map(note => {
-    if (note.trashed) {
-      trashed.push(note);
-    }
-
-    return trashed;
-  });
+  const { trashed, onTrashButtonClick, onArchiveButtonClick } = useContext(
+    NotesContext
+  );
 
   return (
     <div className="pages-page">

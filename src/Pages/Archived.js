@@ -4,19 +4,9 @@ import { Note } from "../components/Note";
 import { NotesContext } from "../context/Index";
 
 export const Archived = () => {
-  const {
-    notes,
-    archived,
-    onArchiveButtonClick,
-    onTrashButtonClick
-  } = useContext(NotesContext);
-
-  // archived.length = 0;
-  notes.map(note => {
-    if (note.archived) {
-      archived.push(note);
-    }
-  });
+  const { archived, onArchiveButtonClick, onTrashButtonClick } = useContext(
+    NotesContext
+  );
 
   return (
     <div className="pages-page">

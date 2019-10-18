@@ -7,7 +7,7 @@ export const TextArea = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [content, setContent] = useState(undefined);
   const [title, setTitle] = useState(undefined);
-  const { notes, addNote } = useContext(NotesContext);
+  const { notes, updateNotes } = useContext(NotesContext);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -31,7 +31,7 @@ export const TextArea = () => {
       trashed: false,
       key: uniqid()
     };
-    addNote([...notes, newNote]);
+    updateNotes([...notes, newNote]);
   };
 
   return (

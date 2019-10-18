@@ -3,30 +3,34 @@ import React, { useState } from "react";
 export const Context = React.createContext({});
 
 export const Provider = props => {
-  const [notes, addNote] = useState([]);
-  const trashed = [];
-  const archived = [];
-  const pureNotes = [];
+  const [notes, updateNotes] = useState([]);
+  const [trashed, updateTrash] = useState([]);
+  const [archived, updateArchived] = useState([]);
 
   const onTrashButtonClick = index => {
-    const trashedItem = notes.findIndex(note => note.key === index);
-    notes[trashedItem].trashed = true;
-    pureNotes.splice(trashedItem, 1);
+    const trashedItemIndex = notes.findIndex(note => note.key === index);
+    const trashedItem = notes[trashedItemIndex];
+    updateTrash([...trashed, trashedItem]);
+    notes.splice(trashedItemIndex, 1);
+    updateNotes([...notes]);
   };
 
   const onArchiveButtonClick = index => {
-    const archivedItem = notes.findIndex(note => note.key === index);
-    notes[archivedItem].archived = true;
-    pureNotes.splice(archivedItem, 1);
+    const archivedItemIndex = notes.findIndex(note => note.key === index);
+    const archivedItem = notes[archivedItemIndex];
+    updateArchived([...trashed, archivedItem]);
+    notes.splice(archivedItemIndex, 1);
+    updateNotes([...notes]);
   };
 
   const notesContext = {
     notes,
-    addNote,
-    pureNotes,
+    updateNotes,
     trashed,
     onTrashButtonClick,
     archived,
+    updateTrash,
+    updateArchived,
     onArchiveButtonClick
   };
 

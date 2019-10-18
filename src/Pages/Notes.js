@@ -4,21 +4,9 @@ import { Note } from "../components/Note";
 import { TextArea } from "../components/TextArea";
 
 export const Notes = () => {
-  const {
-    notes,
-    onArchiveButtonClick,
-    onTrashButtonClick,
-    pureNotes
-  } = useContext(NotesContext);
-
-  // pureNotes.length = 0;
-  notes.map(note => {
-    if (!note.archived && !note.trashed) {
-      pureNotes.push(note);
-    }
-
-    return 0;
-  });
+  const { notes, onArchiveButtonClick, onTrashButtonClick } = useContext(
+    NotesContext
+  );
 
   return (
     <div>
@@ -27,7 +15,7 @@ export const Notes = () => {
       </div>
 
       <div className="note-holder">
-        {pureNotes.map(note => (
+        {notes.map(note => (
           <Note
             title={note.title}
             content={note.content}
