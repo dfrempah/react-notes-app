@@ -6,6 +6,7 @@ export const Provider = props => {
   const [notes, updateNotes] = useState([]);
   const [trashed, updateTrash] = useState([]);
   const [archived, updateArchived] = useState([]);
+  const [showModal, setShowModal] = useState(true);
 
   const onTrashButtonClick = (index, whereFrom) => {
     if (whereFrom === "notes") {
@@ -21,6 +22,7 @@ export const Provider = props => {
       archived.splice(trashedItemIndex, 1);
       updateArchived([...archived]);
     } else if (whereFrom === "trash") {
+      setShowModal(true);
       const trashedItemIndex = trashed.findIndex(note => note.key === index);
       trashed.splice(trashedItemIndex, 1);
       updateTrash([...trashed]);
@@ -51,7 +53,9 @@ export const Provider = props => {
     archived,
     updateTrash,
     updateArchived,
-    onArchiveButtonClick
+    onArchiveButtonClick,
+    showModal,
+    setShowModal
   };
 
   return (

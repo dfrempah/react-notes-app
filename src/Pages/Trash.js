@@ -2,11 +2,24 @@ import React, { useContext } from "react";
 import { NotesContext } from "../context/Index";
 import { GoTrashcan } from "react-icons/go";
 import { Note } from "../components/Note";
+import Modal from "react-modal";
+
+Modal.setAppElement(document.getElementById("root"));
 
 export const Trash = () => {
-  const { trashed, onTrashButtonClick, onArchiveButtonClick } = useContext(
-    NotesContext
-  );
+  const {
+    trashed,
+    onTrashButtonClick,
+    onArchiveButtonClick,
+    setShowModal,
+    showModal
+  } = useContext(NotesContext);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  //
 
   return (
     <div className="pages-page">
@@ -16,6 +29,13 @@ export const Trash = () => {
       <div className="pages-content">
         {trashed.length > 0 ? (
           <div>
+            <Modal
+              isOpen={true}
+              contentLabel="Modal is open"
+              // onRequestClose={closeModal}
+            >
+              <button onClick={closeModal}>close modal</button>
+            </Modal>
             {trashed.map(note => (
               <Note
                 whereFrom="trash"
