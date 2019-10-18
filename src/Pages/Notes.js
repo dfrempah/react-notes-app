@@ -17,6 +17,9 @@ export const Notes = () => {
       <div className="note-holder">
         {notes.map(note => (
           <Note
+            whereFrom="notes"
+            archiveButton={true}
+            deleteButton={true}
             title={note.title}
             content={note.content}
             key={note.key}

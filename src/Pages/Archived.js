@@ -4,7 +4,7 @@ import { Note } from "../components/Note";
 import { NotesContext } from "../context/Index";
 
 export const Archived = () => {
-  const { archived, onArchiveButtonClick, onTrashButtonClick } = useContext(
+  const { archived, onTrashButtonClick, onArchiveButtonClick } = useContext(
     NotesContext
   );
 
@@ -19,6 +19,9 @@ export const Archived = () => {
           <div>
             {archived.map(note => (
               <Note
+                whereFrom="archived"
+                archivedButton={true}
+                deleteButton={true}
                 title={note.title}
                 content={note.content}
                 key={note.key}
@@ -30,7 +33,7 @@ export const Archived = () => {
           </div>
         ) : (
           <div>
-            <GoFile size="70px" className="pages-center-icon" />
+            <GoFile size="75px" className="pages-center-icon" />
             <p style={{ textAlign: "center" }}>
               Archives Empty, archive notes to get started!
             </p>

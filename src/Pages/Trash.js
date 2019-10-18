@@ -18,6 +18,9 @@ export const Trash = () => {
           <div>
             {trashed.map(note => (
               <Note
+                whereFrom="trash"
+                archiveButton={true}
+                deleteButton={true}
                 title={note.title}
                 content={note.content}
                 key={note.key}
@@ -29,7 +32,7 @@ export const Trash = () => {
           </div>
         ) : (
           <div>
-            <GoTrashcan size="70px" className="pages-center-icon" />
+            <GoTrashcan size="75px" className="pages-center-icon" />
             <p style={{ textAlign: "center" }}>
               Trash Empty, delete notes to get started!
             </p>
